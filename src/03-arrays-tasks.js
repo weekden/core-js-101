@@ -35,18 +35,8 @@ function findElement(arr, value) {
  *    2 => [ 1, 3 ]
  *    5 => [ 1, 3, 5, 7, 9 ]
  */
-function generateOdds(/* len */) {
-  // let oddArr = [];
-  // let num = 1;
-  // while (oddArr.length < len) {
-  //   oddArr.push(num);
-  //   num += 2;
-  // }
-  // return oddArr;
-  // const newArr = new Array(len);
-  // return newArr.map((item, index) => {
-  //   return item = index + 1;
-  // });
+function generateOdds(len) {
+  return new Array(len).fill(null).map((item, index) => 2 * index + 1);
 }
 
 
@@ -241,11 +231,12 @@ function toArrayOfSquares(arr) {
  *   [ 0, 0, 0, 0, 0]         => [ 0, 0, 0, 0, 0]
  *   [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ] => [ 1, 3, 6, 10, 15, 21, 28, 36, 45, 55 ]
  */
-function getMovingSum(/* arr */) {
-  // return arr.reduce((acc, item) => {
-  //   acc = item;
-  //   return item += acc;
-  // });
+function getMovingSum(arr) {
+  let sum = 0;
+  return arr.map((item) => {
+    sum += item;
+    return sum;
+  });
 }
 
 /**
@@ -454,14 +445,8 @@ function toStringList(arr) {
  *      { country: 'Russia',  city: 'Saint Petersburg' }
  *    ]
  */
-function sortCitiesArray(arr) {
-  return arr.sort((a, b) => {
-    if (arr.country[a] > arr.country[b]) return 1;
-    if (arr.country[a] < arr.country[b]) return -1;
-    if (arr.city[a] > arr.city[b]) return 1;
-    if (arr.city[a] < arr.city[b]) return 1;
-    return 0;
-  });
+function sortCitiesArray(/* arr */) {
+  throw new Error('Not implemented');
 }
 
 /**
@@ -499,8 +484,9 @@ function getIdentityMatrix(/* n */) {
  *     0, 100 => [ 0, 1, 2, ..., 100 ]
  *     3, 3   => [ 3 ]
  */
-function getIntervalArray(/* start, end */) {
-  throw new Error('Not implemented');
+function getIntervalArray(start, end) {
+  const arrLength = end - start;
+  return new Array(arrLength + 1).fill(start).map((item, index) => start + index);
 }
 
 /**

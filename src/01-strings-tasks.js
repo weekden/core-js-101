@@ -231,19 +231,17 @@ function getRectangleString(/* width, height */) {
  *
  */
 function encodeToRot13(str) {
-  const enter = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
-  const output = 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm';
-  const splitStr = str.split('');
+  const enter = 'ABCDEFGHIJKLMNOPQRSTUVWXYZNOPQRSTUVWXYZABCDEFGHIJKLMabcdefghijklmnopqrstuvwxyznopqrstuvwxyzabcdefghijklm';
   let newStr = '';
-  // const step = 13;
-  splitStr.forEach((elem) => {
-    const inputIndex = enter.split('').indexOf(elem);
-    if (inputIndex === -1) {
-      newStr += ' ';
+  const step = 26;
+  for (let i = 0; i < str.length; i += 1) {
+    const searchIndex = enter.indexOf(str[i]);
+    if (searchIndex >= 0) {
+      newStr += enter[searchIndex + step];
+    } else {
+      newStr += str[i];
     }
-    const outputElem = output.split('')[inputIndex];
-    newStr += outputElem;
-  });
+  }
   return newStr;
 }
 
@@ -260,8 +258,8 @@ function encodeToRot13(str) {
  *   isString('test') => true
  *   isString(new String('test')) => true
  */
-function isString(value) {
-  return typeof (value) === 'string';
+function isString(/* value */) {
+  throw new Error('Not implemented');
 }
 /**
  * Returns playid card id.

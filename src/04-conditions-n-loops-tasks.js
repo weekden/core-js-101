@@ -224,8 +224,8 @@ function getIntervalString(/* a, b, isStartIncluded, isEndIncluded */) {
  * 'rotator' => 'rotator'
  * 'noon' => 'noon'
  */
-function reverseString(/* str */) {
-  throw new Error('Not implemented');
+function reverseString(str) {
+  return str.split('').reverse().join('');
 }
 
 
@@ -297,8 +297,6 @@ function getDigitalRoot(num) {
     numberArr = getNumberArr(summ);
     summ = getSummArr(numberArr);
   }
-  // const numberArr2 = getNumberArr(summ1);
-  // const summ2 = getSummArr(numberArr2);
   return summ;
 }
 
